@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product | SentinX Systems</title>
+
+    <style>
+
+        :root {
+            --bg: #06111f;
+            --card: rgba(12, 31, 50, 0.92);
+            --cyan: #00d9ff;
+            --text: #f3f8ff;
+            --muted: #a9bacb;
+            --border: rgba(0, 217, 255, 0.22);
+            --green: #42e695;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(3, 12, 23, 0.82),
+                    rgba(3, 12, 23, 0.94)
+                ),
+                url("security-background.jpg")
+                center/cover fixed;
+
+            color: var(--text);
+
+            min-height: 100vh;
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 217, 255, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0, 217, 255, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+
+            z-index: -1;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        .container {
+
+            width: min(1150px, 92%);
+
+            margin: auto;
+        }
+
+
+        /* NAV */
+
+        nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background: rgba(4, 14, 27, 0.92);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .nav-inner {
+
+            min-height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            height: 48px;
+
+            width: auto;
+        }
+
+
+        .back {
+
+            color: var(--cyan);
+
+            font-weight: bold;
+        }
+
+
+        /* PRODUCT */
+
+        main {
+
+            padding: 80px 0;
+        }
+
+
+        .product-detail {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 35px;
+
+            backdrop-filter: blur(14px);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.35);
+        }
+
+
+        .product-image-box {
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            border: 1px solid var(--border);
+
+            background: #081827;
+        }
+
+
+        .product-image {
+
+            width: 100%;
+
+            height: 480px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .category {
+
+            color: var(--cyan);
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 12px;
+        }
+
+
+        h1 {
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+
+        .price {
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            color: var(--cyan);
+
+            margin-bottom: 22px;
+        }
+
+
+        .description {
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .features {
+
+            list-style: none;
+
+            margin-bottom: 30px;
+        }
+
+
+        .features li {
+
+            margin-bottom: 12px;
+
+            color: #d9e8f5;
+        }
+
+
+        .features li::before {
+
+            content: "✓";
+
+            color: var(--green);
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+
+        .buttons {
+
+            display: flex;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 14px 22px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .order-btn {
+
+            background: var(--cyan);
+
+            color: #03111d;
+        }
+
+
+        .order-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 25px rgba(0,217,255,0.35);
+        }
+
+
+        .back-btn {
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.04);
+        }
+
+
+        .back-btn:hover {
+
+            border-color: var(--cyan);
+        }
+
+
+        .error {
+
+            max-width: 700px;
+
+            margin: 100px auto;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+        }
+
+
+        .error h1 {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .error p {
+
+            color: var(--muted);
+
+            margin-bottom: 25px;
+        }
+
+
+        footer {
+
+            border-top: 1px solid var(--border);
+
+            padding: 30px 0;
+
+            color: var(--muted);
+
+            text-align: center;
+        }
+
+
+        @media (max-width: 800px) {
+
+            .product-detail {
+
+                grid-template-columns: 1fr;
+
+                padding: 20px;
+            }
+
+
+            .product-image {
+
+                height: 330px;
+            }
+
+
+            main {
+
+                padding: 40px 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<nav>
+
+    <div class="container nav-inner">
+
+        <a href="index.html">
+
+            <img
+                src="logo.png"
+                alt="SentinX Systems Logo"
+                class="logo"
+            >
+
+        </a>
+
+
+        <a href="index.html#producten" class="back">
+
+            ← Terug naar producten
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- PRODUCT CONTENT -->
+
+<main>
+
+    <div class="container">
+
+        <div id="productContainer"></div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    © 2026 SentinX Systems B.V.
+
+</footer>
+
+
+<script>
+
+
+    const products = {
+
+        "warmtebeeld-camera": {
+
+            name: "Warmtebeeld Camera",
+
+            price: 2800,
+
+            image: "warmtebeeld-camera.jpg",
+
+            category: "Camerabeveiliging",
+
+            description:
+                "Een geavanceerde warmtebeeldcamera voor het detecteren van personen, objecten en temperatuurverschillen, ook bij weinig licht.",
+
+            features: [
+                "Warmtedetectie",
+                "Werkt bij weinig licht",
+                "Realtime monitoring",
+                "Geschikt voor buitenterreinen",
+                "Professionele beveiliging"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "verrekijker-camera": {
+
+            name: "Verrekijker Camera",
+
+            price: 18500,
+
+            image: "verrekijker-camera.jpg",
+
+            category: "Camerabeveiliging",
+
+            description:
+                "Professionele camera met grote zoommogelijkheden voor observatie op lange afstand.",
+
+            features: [
+                "Grote optische zoom",
+                "Lange afstand observatie",
+                "Hoge beeldkwaliteit",
+                "Nachtzicht",
+                "Professionele monitoring"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "laser-bewaking": {
+
+            name: "Laser Bewaking",
+
+            price: 4200,
+
+            image: "laser-bewaking.jpg",
+
+            category: "Camerabeveiliging",
+
+            description:
+                "Lasergebaseerde beveiliging voor het detecteren van beweging en het beschermen van belangrijke gebieden.",
+
+            features: [
+                "Bewegingsdetectie",
+                "Lange detectieafstand",
+                "Realtime meldingen",
+                "Geschikt voor terreinen",
+                "Snelle signalering"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "industrie-camera": {
+
+            name: "Industrie Camera",
+
+            price: 4900,
+
+            image: "industrie-camera.jpg",
+
+            category: "Camerabeveiliging",
+
+            description:
+                "Robuuste beveiligingscamera voor industriële locaties en bedrijfsterreinen.",
+
+            features: [
+                "Robuuste behuizing",
+                "24/7 monitoring",
+                "Hoge beeldkwaliteit",
+                "Geschikt voor industrie",
+                "Realtime beveiliging"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "bewakingsdrone": {
+
+            name: "Bewakingsdrone",
+
+            price: 7500,
+
+            image: "bewakingsdrone.jpg",
+
+            category: "Camerabeveiliging",
+
+            description:
+                "Een mobiele beveiligingsdrone voor het controleren van grote terreinen en moeilijk bereikbare gebieden.",
+
+            features: [
+                "Luchtmonitoring",
+                "Grote dekking",
+                "Camera aan boord",
+                "Realtime beelden",
+                "Geschikt voor grote terreinen"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "3d-bagagescanner": {
+
+            name: "3D Bagagescanner",
+
+            price: 95000,
+
+            image: "3d-bagagescanner.jpg",
+
+            category: "Checkpoint & Controle",
+
+            description:
+                "Geavanceerde 3D-scanner voor het controleren van bagage en objecten.",
+
+            features: [
+                "3D beeldvorming",
+                "Snelle controle",
+                "Objectherkenning",
+                "Professioneel gebruik",
+                "Hoge nauwkeurigheid"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "personenscanner": {
+
+            name: "Personenscanner",
+
+            price: 62000,
+
+            image: "personenscanner.jpg",
+
+            category: "Checkpoint & Controle",
+
+            description:
+                "Geavanceerde scanner voor veiligheidscontroles van personen.",
+
+            features: [
+                "Snelle scan",
+                "Veiligheidscontrole",
+                "Realtime analyse",
+                "Geschikt voor checkpoints",
+                "Professioneel gebruik"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "vrachtwagenscanner": {
+
+            name: "Vrachtwagenscanner",
+
+            price: 250000,
+
+            image: "vrachtwagenscanner.jpg",
+
+            category: "Checkpoint & Controle",
+
+            description:
+                "Grote scannersystemen voor het controleren van vrachtwagens en transport.",
+
+            features: [
+                "Grote scanruimte",
+                "Vrachtwagencontrole",
+                "Realtime beeld",
+                "Hoge nauwkeurigheid",
+                "Professioneel beveiligingssysteem"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "bomdetectie-scanner": {
+
+            name: "Bomdetectie Scanner",
+
+            price: 70000,
+
+            image: "bomdetectie-scanner.jpg",
+
+            category: "Checkpoint & Controle",
+
+            description:
+                "Professionele detectieoplossing voor het ondersteunen van veiligheidscontroles.",
+
+            features: [
+                "Detectieondersteuning",
+                "Snelle analyse",
+                "Professioneel gebruik",
+                "Realtime resultaten",
+                "Geschikt voor beveiligde locaties"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "luchtanalyser-poort": {
+
+            name: "Luchtanalyser Poort",
+
+            price: 38000,
+
+            image: "luchtanalyser-poort.jpg",
+
+            category: "Checkpoint & Controle",
+
+            description:
+                "Analysepoort voor het controleren van lucht en mogelijke gevaarlijke stoffen.",
+
+            features: [
+                "Luchtanalyse",
+                "Snelle detectie",
+                "Automatische analyse",
+                "Checkpoint integratie",
+                "Realtime meldingen"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "hand-metaaldetector": {
+
+            name: "Hand-Metaaldetector",
+
+            price: 180,
+
+            image: "hand-metaaldetector.jpg",
+
+            category: "Hand- & Veldapparatuur",
+
+            description:
+                "Compacte handmetaaldetector voor snelle veiligheidscontroles.",
+
+            features: [
+                "Compact formaat",
+                "Lichtgewicht",
+                "Snelle detectie",
+                "Draagbaar",
+                "Geschikt voor checkpoints"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "stoffendetector": {
+
+            name: "Stoffendetector",
+
+            price: 5800,
+
+            image: "stoffendetector.jpg",
+
+            category: "Hand- & Veldapparatuur",
+
+            description:
+                "Draagbare detector voor het analyseren en herkennen van verschillende stoffen.",
+
+            features: [
+                "Stofdetectie",
+                "Draagbaar",
+                "Snelle analyse",
+                "Realtime resultaten",
+                "Professioneel gebruik"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "toegangstablet": {
+
+            name: "Toegangstablet",
+
+            price: 1100,
+
+            image: "toegangstablet.jpg",
+
+            category: "Hand- & Veldapparatuur",
+
+            description:
+                "Slimme tablet voor toegangscontrole en registratie.",
+
+            features: [
+                "Digitale registratie",
+                "Toegangscontrole",
+                "Realtime gegevens",
+                "Gebruiksvriendelijk",
+                "Mobiel inzetbaar"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "veiligheidsschild": {
+
+            name: "Veiligheidsschild",
+
+            price: 850,
+
+            image: "veiligheidsschild.jpg",
+
+            category: "Hand- & Veldapparatuur",
+
+            description:
+                "Professioneel veiligheidsschild voor beveiligingspersoneel.",
+
+            features: [
+                "Stevige constructie",
+                "Professioneel gebruik",
+                "Bescherming",
+                "Ergonomisch ontwerp",
+                "Geschikt voor beveiliging"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "slimme-toegangspoort": {
+
+            name: "Slimme Toegangspoort",
+
+            price: 4200,
+
+            image: "slimme-toegangspoort.jpg",
+
+            category: "Hand- & Veldapparatuur",
+
+            description:
+                "Slimme toegangspoort voor het controleren van personen en toegang.",
+
+            features: [
+                "Automatische controle",
+                "Toegangsbeheer",
+                "Realtime registratie",
+                "Integratie met systemen",
+                "Professionele beveiliging"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "veilige-serverkluis": {
+
+            name: "Veilige Serverkluis",
+
+            price: 1200,
+
+            image: "veilige-serverkluis.jpg",
+
+            category: "Cybersecurity & Software",
+
+            description:
+                "Beveiligde opslagoplossing voor belangrijke servers en apparatuur.",
+
+            features: [
+                "Fysieke beveiliging",
+                "Bescherming van apparatuur",
+                "Stevige constructie",
+                "Geschikt voor servers",
+                "Professionele beveiliging"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "ai-hack-schild": {
+
+            name: "AI Hack Schild",
+
+            price: 550,
+
+            image: "ai-hack-schild.jpg",
+
+            category: "Cybersecurity & Software",
+
+            description:
+                "Slimme cybersecurityoplossing voor het herkennen en voorkomen van digitale aanvallen.",
+
+            features: [
+                "AI-detectie",
+                "Realtime monitoring",
+                "Aanvalsdetectie",
+                "Digitale beveiliging",
+                "Automatische meldingen"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "controlescherm": {
+
+            name: "ControleScherm",
+
+            price: 750,
+
+            image: "controlescherm.jpg",
+
+            category: "Cybersecurity & Software",
+
+            description:
+                "Centraal dashboard voor het bekijken en beheren van beveiligingssystemen.",
+
+            features: [
+                "Centraal dashboard",
+                "Realtime informatie",
+                "Systeembeheer",
+                "Meldingen",
+                "Overzichtelijke interface"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "contract-checker": {
+
+            name: "Contract Checker",
+
+            price: 450,
+
+            image: "contract-checker.jpg",
+
+            category: "Cybersecurity & Software",
+
+            description:
+                "Software voor het controleren van contracten en mogelijke risico's.",
+
+            features: [
+                "Automatische controle",
+                "AI-ondersteuning",
+                "Risicoherkenning",
+                "Snelle analyse",
+                "Overzichtelijke resultaten"
+            ],
+
+            workproofUrl: "#"
+        },
+
+
+        "datalek-zoeker": {
+
+            name: "Datalek Zoeker",
+
+            price: 400,
+
+            image: "datalek-zoeker.jpg",
+
+            category: "Cybersecurity & Software",
+
+            description:
+                "Softwareoplossing voor het opsporen en analyseren van mogelijke datalekken.",
+
+            features: [
+                "Datalekdetectie",
+                "Automatische analyse",
+                "Realtime monitoring",
+                "Risicomeldingen",
+                "Cybersecurity ondersteuning"
+            ],
+
+            workproofUrl: "#"
+        }
+
+    };
+
+
+    /* PRODUCT OPHALEN UIT URL */
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+
+    const productId =
+        params.get("product");
+
+
+    const product =
+        products[productId];
+
+
+    const container =
+        document.getElementById("productContainer");
+
+
+    /* ALS PRODUCT BESTAAT */
+
+    if (product) {
+
+        document.title =
+            product.name + " | SentinX Systems";
+
+
+        container.innerHTML = `
+
+            <div class="product-detail">
+
+
+                <div class="product-image-box">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                        class="product-image"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <div class="category">
+
+                        ${product.category}
+
+                    </div>
+
+
+                    <h1>
+
+                        ${product.name}
+
+                    </h1>
+
+
+                    <div class="price">
+
+                        €${product.price.toLocaleString("nl-NL")}
+
+                    </div>
+
+
+                    <p class="description">
+
+                        ${product.description}
+
+                    </p>
+
+
+                    <ul class="features">
+
+                        ${product.features
+                            .map(feature => `<li>${feature}</li>`)
+                            .join("")
+                        }
+
+                    </ul>
+
+
+                    <div class="buttons">
+
+
+                        <a
+                            id="orderButton"
+                            href="${product.workproofUrl}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn order-btn"
+                            onclick="checkWorkProof(event)"
+                        >
+
+                            Bestellen
+
+                        </a>
+
+
+                        <a
+                            href="index.html#producten"
+                            class="btn back-btn"
+                        >
+
+                            ← Alle producten
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* ALS PRODUCT NIET BESTAAT */
+
+    else {
+
+        container.innerHTML = `
+
+            <div class="error">
+
+                <h1>
+                    Product niet gevonden
+                </h1>
+
+                <p>
+                    Dit product bestaat niet of de productlink is niet correct.
+                </p>
+
+                <a
+                    href="index.html#producten"
+                    class="btn order-btn"
+                >
+                    Terug naar producten
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+
+    function checkWorkProof(event) {
+
+        const href =
+            event.currentTarget.getAttribute("href");
+
+
+        if (href === "#") {
+
+            event.preventDefault();
+
+
+            alert(
+                "De WorkProof-link voor dit product moet nog worden ingevuld."
+            );
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
